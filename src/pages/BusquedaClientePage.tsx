@@ -1,7 +1,7 @@
-import { FormEvent, useState } from "react";
+import { type FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api/client";
-import type { GenericResponse } from "../api/client";
+import type { ClienteResponse } from "../api/client";
 
 export function BusquedaClientePage(){
     const navigate = useNavigate();

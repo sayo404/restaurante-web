@@ -3,16 +3,11 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 
-import { LoginPage } from "./pages/LoginPage.tsx";
-import { BienvenidoPage } from "./pages/BienvenidoPage.tsx";
-import { NuevoRegistroPage } from "./pages/NuevoRegistroPage.tsx";
-import { BusquedaClientePage } from "./pages/BusquedaClientePage.tsx";
-import { MenuPage } from "./pages/MenuPage.tsx";
-
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import { LoginPage } from "./pages/LoginPage";
+import { BienvenidoPage } from "./pages/BienvenidoPage";
+import { NuevoRegistroPage } from "./pages/NuevoRegistroPage";
+import { BusquedaClientePage } from "./pages/BusquedaClientePage";
+import { MenuPage } from "./pages/MenuPage";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
