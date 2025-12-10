@@ -6,6 +6,8 @@ import { useAuth } from "../auth/AuthContext";
 
 export function LoginPage(){
 	const navigate = useNavigate();
+  const { login } = useAuth();   // 👈 ahora sí usamos useAuth
+
 	const [usuario, setUsuario] = useState("");
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState("");
