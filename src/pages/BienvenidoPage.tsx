@@ -1,7 +1,14 @@
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../auth/AuthContext";
 
-export function BienvenidoPage(){
-    const navigate = useNavigate();
+export function BienvenidoPage() {
+  const navigate = useNavigate();
+  const { logout } = useAuth();
+
+  function handleLogout() {
+    logout();
+    navigate("/login");
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-100">
@@ -20,6 +27,13 @@ export function BienvenidoPage(){
           className="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition"
         >
           Búsqueda de cliente
+        </button>
+
+        <button
+          onClick={handleLogout}
+          className="w-full bg-gray-200 text-gray-800 py-2 rounded-lg font-semibold hover:bg-gray-300 transition mt-4"
+        >
+          Cerrar sesión
         </button>
       </div>
     </div>

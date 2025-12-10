@@ -8,18 +8,50 @@ import { BienvenidoPage } from "./pages/BienvenidoPage";
 import { NuevoRegistroPage } from "./pages/NuevoRegistroPage";
 import { BusquedaClientePage } from "./pages/BusquedaClientePage";
 import { MenuPage } from "./pages/MenuPage";
+import { AuthProvider } from "./auth/AuthContext";
+import { ProtectedRoute } from "./auth/ProtectedRoute";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<LoginPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/bienvenido" element={<BienvenidoPage />} />
-        <Route path="/nuevo-registro" element={<NuevoRegistroPage />} />
-        <Route path="/busqueda-cliente" element={<BusquedaClientePage />} />
-        <Route path="/menu" element={<MenuPage />} />
-      </Routes>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/bienvenido"
+            element={
+              <ProtectedRoute>
+                <BienvenidoPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/nuevo-registro"
+            element={
+              <ProtectedRoute>
+                <NuevoRegistroPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/busqueda-cliente"
+            element={
+              <ProtectedRoute>
+                <BusquedaClientePage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/menu"
+            element={
+              <ProtectedRoute>
+                <MenuPage />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   </React.StrictMode>
 );
