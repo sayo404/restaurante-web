@@ -1,7 +1,8 @@
-import{ type FormEvent, useState } from "react";
-import{ useNavigate } from "react-router-dom";
-import{ api } from "../api/client";
+import { useState, type FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
+import { api } from "../api/client";
 import type { LoginResponse } from "../api/client";
+import { useAuth } from "../auth/AuthContext";
 
 export function LoginPage(){
 	const navigate = useNavigate();
@@ -20,6 +21,7 @@ export function LoginPage(){
 			});
 
 			if(response.data.exito){
+        login();
 				navigate("/bienvenido");
 			}else{
 				setError("Error en usuario y/o contraseña, intente de nuevo");
